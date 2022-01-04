@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import Leftside from "./LeftSide";
+import Main from "./Main";
+import RightSide from "./RightSide";
 
 const Home = () => {
   return (
@@ -15,6 +18,12 @@ const Home = () => {
           </p>
         </Content>
       </Section>
+
+      <Layout>
+        <Leftside />
+        <Main />
+        <RightSide />
+      </Layout>
     </Container>
   );
 };
@@ -54,6 +63,22 @@ const Section = styled.section`
   }
 
   @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 5px;
+  }
+`;
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-areas: "leftside main rightside";
+  grid-template-columns: minmax(0, 5fr) minmax(0, 12fr) minmax(300px, 7fr);
+  column-gap: 25px;
+  row-gap: 25px;
+  /* grid-template-rows: auto; */
+  margin: 25px 0;
+
+  @media (max-width: 768px) {
+    display: flex;
     flex-direction: column;
     padding: 0 5px;
   }
